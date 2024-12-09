@@ -26,7 +26,7 @@
  3. Установите необходимые библиотеки:
 ```bash```
 Копировать код
- pip install -r requirements.txt
+ ```pip install -r requirements.txt```
 Запустите приложение:
 bash
 Копировать код
