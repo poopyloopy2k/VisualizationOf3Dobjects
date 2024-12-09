@@ -1,10 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model of Letter L</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-bottom: 30px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 70px;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .plot-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .plot-container div {
+            width: 45%;
+            height: 500px;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <h1>3D Model of Letter L</h1>
+
+    <!-- Form for transformations -->
+    <form method="POST">
+        <div>
+            <label for="scale">Scale:</label>
+            <input type="number" id="scale" name="scale" step="0.1" value="1"><br><br>
+
+            <label for="rx">Rotation X (degrees):</label>
+            <input type="number" id="rx" name="rx" step="0.1" value="0"><br><br>
+
+            <label for="ry">Rotation Y (degrees):</label>
+            <input type="number" id="ry" name="ry" step="0.1" value="0"><br><br>
+
+            <label for="rz">Rotation Z (degrees):</label>
+            <input type="number" id="rz" name="rz" step="0.1" value="0"><br><br>
+
+            <label for="tx">Translation X:</label>
+            <input type="number" id="tx" name="tx" step="0.1" value="0"><br><br>
+
+            <label for="ty">Translation Y:</label>
+            <input type="number" id="ty" name="ty" step="0.1" value="0"><br><br>
+
+            <label for="tz">Translation Z:</label>
+            <input type="number" id="tz" name="tz" step="0.1" value="0"><br><br>
+
+            <input type="submit" value="Apply Transformation">
+        </div>
+    </form>
+
+    <!-- Display 3D plot -->
+    <h2>3D Plot</h2>
+    <div>{{ plot_3d|safe }}</div>
+
+    <!-- Display orthographic projections -->
+    <h2>Orthographic Projections</h2>
+    <div class="plot-container">
+        <div>
+            <h3>XY Projection</h3>
+            <div>{{ plot_xy|safe }}</div>
+        </div>
+        <div>
+            <h3>XZ Projection</h3>
+            <div>{{ plot_xz|safe }}</div>
+        </div>
+        <div>
+            <h3>YZ Projection</h3>
+            <div>{{ plot_yz|safe }}</div>
+        </div>
+    </div>
+
+    <!-- Display transformation matrix -->
+    <h2>Transformation Matrix</h2>
+    <pre>{{ matrix|safe }}</pre>
 </body>
 </html>
