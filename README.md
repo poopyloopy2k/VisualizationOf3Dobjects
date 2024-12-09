@@ -21,12 +21,12 @@
    ```bash
    git clone https://github.com/poopyloopy2k/VisualizationOf3Dobjects.git
    cd VisualizationOf3Dobjects
-   Установите необходимые библиотеки:
-bash
+ 3. Установите необходимые библиотеки:
+```bash
 Копировать код
-pip install -r requirements.txt
+ pip install -r requirements.txt
 Запустите приложение:
-bash
+```bash
 Копировать код
 python app.py
 Перейдите в браузер по адресу http://127.0.0.1:5000/ для взаимодействия с приложением.
